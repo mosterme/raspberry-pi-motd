@@ -1,6 +1,6 @@
 # Raspberry Pi - Message Of The Day
 
-Scripts to generate a dynamic "message of the day" (motd) for your Raspberry Pi.
+Scripts to generate a pretty dynamic "message of the day" (motd) for your Raspberry Pi.
 
 ![dynamic motd](motd.png)
 

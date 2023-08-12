@@ -1,5 +1,4 @@
 #!/bin/sh
-export TERM=xterm-256color
 
 # see http://0pointer.de/blog/projects/os-release and https://www.freedesktop.org/software/systemd/man/os-release.html
 test -e /etc/os-release && os_release='/etc/os-release' || os_release='/usr/lib/os-release'
