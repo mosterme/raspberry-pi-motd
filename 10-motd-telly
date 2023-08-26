@@ -13,7 +13,7 @@ m=$(free -h | grep Mem | awk {'print "total " $2 "	free " $7 "	used " $3'})
 u=$(uptime -p | cut -c 4-)
 
 cpu=$(cut -c 1,2 /sys/class/thermal/thermal_zone0/temp)
-gpu=$(/opt/vc/bin/vcgencmd measure_temp | cut -c 7,6)
+gpu=$(vcgencmd measure_temp | cut -c 7,6)
 t="CPU ${cpu}° C	GPU ${gpu}° C"
 
 BL='\033[1;34m'
