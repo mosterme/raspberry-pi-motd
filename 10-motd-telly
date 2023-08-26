@@ -5,9 +5,10 @@ test -e /etc/os-release && os_release='/etc/os-release' || os_release='/usr/lib/
 . "${os_release}"
 
 k=$(uname -srmo)
-p=$(curl -s checkip.amazonaws.com)
+e=$(curl -s checkip.amazonaws.com)
 h=$(hostname -f)
-a=$(hostname -i | cut -d " " -f 2)
+a=$(hostname -a)
+i=$(hostname -I | cut -d " " -f 1)
 d=$(df -h  | grep root | awk {'print "total " $2 "	free " $4 "	used " $3 " (" $5 ")"'})
 m=$(free -h | grep Mem | awk {'print "total " $2 "	free " $7 "	used " $3'})
 u=$(uptime -p | cut -c 4-)
@@ -21,6 +22,7 @@ BG='\033[1;31m'
 BR='\033[0;33m'
 CY='\033[1;36m'
 DG='\033[1;30m'
+LR='\033[1;32m'
 NG='\033[0;32m'
 NR='\033[0;31m'
 PU='\033[1;35m'
@@ -31,8 +33,8 @@ echo "
 $BR  .==$BR==============$BR==.  $RS
 $BR  | .$BR--------------$BR. |  $NG $PRETTY_NAME - $k
 $BR  | |$CY--.__.--.__.--$BR| |  $RS
-$BR  | |$PU--.__.--.__.--$BR| |  $NR hostname........: $BG$h
-$BR  | |$CY--.__.--.__.--$BR| |  $NR addresses.......: $CY$a$NR and $PU$p
+$BR  | |$PU--.__.--.__.--$BR| |  $NR hostnames.......: $LR$h$BR and $BG$a 
+$BR  | |$CY--.__.--.__.--$BR| |  $NR addresses.......: $CY$i$NR$BR and $PU$e 
 $BR  | |$PU--.__.--.__.--$BR| |  $NR disk............: $BL$d
 $BR  | |$CY--.__.--.__.--$BR| |  $NR memory..........: $BL$m
 $BR  | '$BR--------------$BR' |  $NR temperature ....: $YE$t
